@@ -24,8 +24,8 @@ public class HomeFragment extends Fragment {
 
         // Thiết lập lắng nghe sự kiện click cho nút
         btnCustomer.setOnClickListener(v -> navigateToPersonFragment());
-        btnListCustomers.setOnClickListener(v -> navigateToMenuFragment());
-        btnElectricIndex.setOnClickListener(v -> navigatetoElectricFragement());
+        btnListCustomers.setOnClickListener(v -> navigateToListCustomer());
+        btnElectricIndex.setOnClickListener(v -> navigateToElectricFragment());
 
         return view;
     }
@@ -38,15 +38,15 @@ public class HomeFragment extends Fragment {
         transaction.commit();
     }
 
-    private void navigateToMenuFragment() {
+    private void navigateToListCustomer(){
         MenuFragment menuFragment = new MenuFragment();
         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_layout, menuFragment);
+        transaction.replace(R.id.frame_layout,menuFragment );
         transaction.addToBackStack(null);
         transaction.commit();
     }
 
-    private void navigatetoElectricFragement() {
+    private void navigateToElectricFragment() {
         IncreasePriceFragment increasePriceFragment = new IncreasePriceFragment();
         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_layout, increasePriceFragment);

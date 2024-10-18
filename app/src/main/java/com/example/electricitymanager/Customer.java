@@ -4,14 +4,15 @@ import java.io.Serializable;
 
 public class Customer implements Serializable {
 
-    private int id;
-    private String name;
-    private String dob;
-    private String address;
-    private int usedElectricNum;
-    private String electricTypeName;
-    private double unitPrice;
+    private int id;  // ID của khách hàng
+    private String name;  // Tên của khách hàng
+    private String dob;  // Ngày sinh của khách hàng
+    private String address;  // Địa chỉ của khách hàng
+    private int usedElectricNum;  // Số điện đã sử dụng
+    private String electricTypeName;  // Tên loại người dùng điện
+    private double unitPrice;  // Đơn giá điện
 
+    // Constructor
     public Customer(int id, String name, String dob, String address, int usedElectricNum, String electricTypeName, double unitPrice) {
         this.id = id;
         this.name = name;
@@ -22,52 +23,60 @@ public class Customer implements Serializable {
         this.unitPrice = unitPrice;
     }
 
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDob() {
-        return dob;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public int getUsedElectricNum() {
-        return usedElectricNum;
-    }
-
-    public String getElectricTypeName() {
-        return electricTypeName;
-    }
-
-    public double getUnitPrice() {
-        return unitPrice;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDob(String dob) {
-        this.dob = dob;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setUsedElectricNum(int usedElectricNum) {
-        this.usedElectricNum = usedElectricNum;
-    }
-
+    // Getters và Setters
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getUsedElectricNum() {
+        return usedElectricNum;
+    }
+
+    public void setUsedElectricNum(int usedElectricNum) {
+        this.usedElectricNum = usedElectricNum;
+    }
+
+    public String getElectricTypeName() {
+        return electricTypeName;
+    }
+
+    public void setElectricTypeName(String electricTypeName) {
+        this.electricTypeName = electricTypeName;
+    }
+
+    public double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(double unitPrice) {
+        this.unitPrice = unitPrice;
     }
 }

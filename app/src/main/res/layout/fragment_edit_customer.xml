@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Name Input -->
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Name"
+        android:inputType="textPersonName" />
+
+    <!-- Date of Birth Picker -->
+    <EditText
+        android:id="@+id/et_dob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Date"
+        android:focusable="false"
+        android:clickable="true" />
+
+    <!-- Address Input -->
+    <EditText
+        android:id="@+id/et_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Address"
+        android:inputType="textPostalAddress" />
+
+    <!-- Used Electric Number Input -->
+    <EditText
+        android:id="@+id/et_used_num_electric"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Used Electric Number"
+        android:inputType="number" />
+
+    <!-- Spinner for Elec User Type ID -->
+    <Spinner
+        android:id="@+id/spinnerElectricUserType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"
+        android:prompt="@string/select_electric_user_type" />
+
+    <TextView
+        android:id="@+id/tvElectricUserTypeName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Electric User Type Name"
+        android:paddingTop="8dp" />
+
+    <TextView
+        android:id="@+id/tvUnitPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Unit Price"
+        android:paddingTop="8dp" />
+
+    <!-- Edit Customer Button -->
+    <Button
+        android:id="@+id/btn_edit_customer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit Customer" />
+
+    <!-- Delete Customer Button -->
+    <Button
+        android:id="@+id/btn_delete_customer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete Customer" />
+</LinearLayout>

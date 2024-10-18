@@ -119,6 +119,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.delete(TABLE_CUSTOMER, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
     }
 
+
     // Fetch all customers (optional)
     public Cursor getAllCustomers() {
         SQLiteDatabase db = this.getReadableDatabase();
