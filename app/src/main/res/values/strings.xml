@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">electricity manager</string>
+    <string name="user_name">User Name</string>
+    <string name="yyyymm">YYYYMM</string>
+    <string name="address">Address</string>
+    <string name="used_num_electric">Used Num electric</string>
+    <string name="id_user">ID user</string>
+    <string name="add_user">Add user</string>
+    <string name="view_all_user">View all user</string>
+    <string name="select_electric_user_type"/>
+    <string-array name="search_by_options">
+        <item>TÊN</item>
+        <item>ĐỊA CHỈ</item>
+    </string-array>
+</resources>
