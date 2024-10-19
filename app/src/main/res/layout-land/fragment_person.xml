@@ -1,0 +1,83 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+                <!-- Name Input -->
+                <EditText
+                    android:id="@+id/et_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="Enter Name"
+                    android:hint="@string/Edt_Name"
+                    android:inputType="textPersonName"
+                    android:textSize="20sp" />
+
+                <!-- Date of Birth Picker -->
+                <EditText
+                    android:id="@+id/et_dob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="Date"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:hint="@string/Edt_Date"
+                    android:textSize="20sp" />
+
+                <!-- Address Input -->
+                <EditText
+                    android:id="@+id/et_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="Enter Address"
+                    android:hint="@string/Edt_Address"
+                    android:inputType="textPostalAddress"
+                    android:textSize="20sp" />
+
+                <!-- Used Electric Number Input -->
+                <EditText
+                    android:id="@+id/et_used_num_electric"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="Enter Used Electric Number"
+                    android:hint="@string/Edt_used_elec_num"
+                    android:inputType="number"
+                    android:textSize="20sp" />
+
+                <!-- Spinner for Elec User Type ID -->
+                <Spinner
+                    android:id="@+id/spinnerElectricUserType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:prompt="@string/select_electric_user_type"
+                    android:spinnerMode="dropdown" />
+
+                <TextView
+                    android:id="@+id/tvElectricUserTypeName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tvElec_use_name"
+                    android:paddingTop="8dp" />
+
+                <TextView
+                    android:id="@+id/tvUnitPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tvunit_price"
+                    android:paddingTop="8dp" />
+
+                <!-- Add Customer Button -->
+                <Button
+                    android:id="@+id/btn_add_customer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btnAddCustomer" />
+
+        </LinearLayout>
+</ScrollView>
