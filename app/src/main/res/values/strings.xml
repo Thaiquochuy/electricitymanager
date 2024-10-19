@@ -9,7 +9,7 @@
     <string name="view_all_user">View all user</string>
     <string name="select_electric_user_type"/>
     <string-array name="search_by_options">
-        <item>TÊN</item>
-        <item>ĐỊA CHỈ</item>
+        <item>NAME</item>
+        <item>ADDRESS</item>
     </string-array>
 </resources>

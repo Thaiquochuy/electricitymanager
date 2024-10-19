@@ -39,7 +39,7 @@ public class IncreasePriceFragment extends Fragment {
                 int increaseAmount = Integer.parseInt(amountString);
                 increaseUnitPrice(increaseAmount); // Gọi phương thức tăng giá
             } else {
-                Toast.makeText(getContext(), "Vui lòng nhập số tiền", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Please enter amount: ", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -50,7 +50,7 @@ public class IncreasePriceFragment extends Fragment {
                 int decreaseAmount = Integer.parseInt(amountString);
                 decreaseUnitPrice(decreaseAmount); // Gọi phương thức giảm giá
             } else {
-                Toast.makeText(getContext(), "Vui lòng nhập số tiền", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Please enter amount: ", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -66,7 +66,7 @@ public class IncreasePriceFragment extends Fragment {
         db.execSQL(query);
         db.close();
 
-        Toast.makeText(getContext(), "Đã tăng giá đơn vị điện lên " + increaseAmount, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Increased the unit price of electricity " + increaseAmount, Toast.LENGTH_SHORT).show();
     }
 
     // Phương thức cập nhật đơn giá điện giảm xuống trong cơ sở dữ liệu
@@ -78,6 +78,6 @@ public class IncreasePriceFragment extends Fragment {
         db.execSQL(query);
         db.close();
 
-        Toast.makeText(getContext(), "Đã giảm giá đơn vị điện xuống " + decreaseAmount, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Decreased the unit price of electricity " + decreaseAmount, Toast.LENGTH_SHORT).show();
     }
 }

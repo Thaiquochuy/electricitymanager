@@ -1,5 +1,7 @@
 package com.example.electricitymanager.fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -7,7 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.appcompat.widget.Toolbar; // Đảm bảo sử dụng đúng Toolbar từ androidx
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,6 +34,19 @@ public class MenuFragment extends Fragment {
         // Ensure you are inflating the correct layout that contains the RecyclerView
         View view = inflater.inflate(R.layout.fragment_menu, container, false);
 
+        // Use androidx Toolbar
+        Toolbar toolbar = view.findViewById(R.id.toolbar);
+        toolbar.inflateMenu(R.menu.menu); // Inflate the menu
+
+        // Handle menu item click
+        toolbar.setOnMenuItemClickListener(item -> {
+            if (item.getItemId() == R.id.menu_settings) {
+                openSettingsFragment();
+                return true;
+            }
+            return false;
+        });
+
         recyclerViewCustomers = view.findViewById(R.id.recyclerViewCustomers);
         recyclerViewCustomers.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -38,11 +55,26 @@ public class MenuFragment extends Fragment {
         // Load customers from the database
         List<Customer> customerList = loadCustomersFromDatabase();
 
-        // Set adapter for RecyclerView
-        customerListAdapter = new CustomerListAdapter(customerList);
+        // Load settings from SharedPreferences
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE);
+        boolean showAddress = sharedPreferences.getBoolean("show_address", true);
+        boolean showUsedNumElectric = sharedPreferences.getBoolean("show_used_num_electric", true);
+        boolean showElectricUserType = sharedPreferences.getBoolean("show_electric_user_type", true);
+        boolean showPrice = sharedPreferences.getBoolean("show_price", true);
+
+        // Set adapter for RecyclerView and pass the visibility preferences
+        customerListAdapter = new CustomerListAdapter(customerList, showAddress, showUsedNumElectric, showElectricUserType, showPrice);
         recyclerViewCustomers.setAdapter(customerListAdapter);
 
         return view;
+    }
+
+    private void openSettingsFragment() {
+        Fragment settingsFragment = new SettingFragment();
+        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_layout, settingsFragment); // Replace the container with the settings fragment
+        transaction.addToBackStack(null); // Add to back stack so user can navigate back
+        transaction.commit();
     }
 
     private List<Customer> loadCustomersFromDatabase() {

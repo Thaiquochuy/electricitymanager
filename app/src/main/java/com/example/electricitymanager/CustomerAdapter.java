@@ -8,13 +8,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import java.util.List;
 
 public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.CustomerViewHolder> {
 
     private List<Customer> customerList;
 
+    // Constructor chỉ với customerList
     public CustomerAdapter(List<Customer> customerList) {
         this.customerList = customerList;
     }
@@ -30,7 +30,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
     @Override
     public void onBindViewHolder(@NonNull CustomerViewHolder holder, int position) {
         Customer customer = customerList.get(position);
-        holder.tvCustomerName.setText("Customer Name: " +customer.getName());
+        holder.tvCustomerName.setText("Customer Name: " + customer.getName());
         holder.tvCustomerDob.setText("DOB: " + customer.getDob());
         holder.tvCustomerAddress.setText("Address: " + customer.getAddress());
         holder.tvUsedElectric.setText("Electric Num: " + customer.getUsedElectricNum());
@@ -57,5 +57,3 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
         }
     }
 }
-
-

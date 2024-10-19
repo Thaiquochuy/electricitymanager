@@ -57,7 +57,7 @@ public class SearchCustomerFragment extends Fragment {
             if (!searchTerm.isEmpty()) {
                 searchCustomer(searchTerm, searchBy); // Gọi phương thức tìm kiếm
             } else {
-                Toast.makeText(getContext(), "Vui lòng nhập từ khóa", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Please enter keyword", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -70,7 +70,7 @@ public class SearchCustomerFragment extends Fragment {
         Cursor cursor = null;
 
         try {
-            if (searchBy.equals("TÊN")) {
+            if (searchBy.equals("NAME")) {
                 cursor = db.query(DatabaseHelper.TABLE_CUSTOMER, null,
                         DatabaseHelper.COLUMN_NAME + " LIKE ?",
                         new String[]{"%" + searchTerm + "%"}, null, null, null);
@@ -103,14 +103,14 @@ public class SearchCustomerFragment extends Fragment {
 
                 recyclerViewCustomers.setVisibility(View.VISIBLE); // Show RecyclerView
             } else {
-                Toast.makeText(getContext(), "Không tìm thấy kết quả", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "No results found", Toast.LENGTH_SHORT).show();
                 recyclerViewCustomers.setVisibility(View.GONE); // Hide RecyclerView if no results
             }
 
             customerAdapter.notifyDataSetChanged(); // Notify adapter of data changes
         } catch (Exception e) {
             e.printStackTrace(); // Print stack trace for debugging
-            Toast.makeText(getContext(), "Lỗi khi tìm kiếm: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Error while searching " + e.getMessage(), Toast.LENGTH_SHORT).show();
         } finally {
             if (cursor != null) {
                 cursor.close(); // Always close the cursor

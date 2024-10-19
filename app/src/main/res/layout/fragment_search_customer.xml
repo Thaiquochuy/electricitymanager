@@ -8,14 +8,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tìm kiếm khách hàng theo TÊN hoặc ĐỊA CHỈ"
+        android:text="Search for customer by Name or Address"
         android:textSize="16sp" />
 
     <EditText
         android:id="@+id/edtSearchTerm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nhập từ khóa tìm kiếm" />
+        android:hint="Enter the keyword" />
 
     <Spinner
         android:id="@+id/spinnerSearchBy"
@@ -27,7 +27,7 @@
         android:id="@+id/btnSearchCustomer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tìm kiếm" />
+        android:text="Search" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCustomers"

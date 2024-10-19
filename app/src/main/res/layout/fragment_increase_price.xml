@@ -8,26 +8,26 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nhập số tiền tăng đơn giá điện (VND)"
+        android:text="Enter the unit price increase amount $"
         android:textSize="16sp" />
 
     <EditText
         android:id="@+id/edtIncreaseAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nhập số tiền"
+        android:hint="Enter the amount"
         android:inputType="number" />
 
     <Button
         android:id="@+id/btnIncreasePrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tăng giá điện" />
+        android:text="Increase unit price of electricity" />
 
 
     <Button
         android:id="@+id/btnDecreasePrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Giảm Giá" />
+        android:text="Decrease unit price of electricity" />
 </LinearLayout>
