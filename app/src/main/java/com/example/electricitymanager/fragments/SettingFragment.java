@@ -1,5 +1,6 @@
 package com.example.electricitymanager.fragments;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,6 +14,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.electricitymanager.R;
+
+import java.util.Objects;
 
 public class SettingFragment extends Fragment {
 
@@ -33,13 +36,14 @@ public class SettingFragment extends Fragment {
         return view;
     }
 
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
     private void initializeSwitches(View view) {
         Switch switchShowAddress = view.findViewById(R.id.switch_show_address);
         Switch switchShowUsedNumElectric = view.findViewById(R.id.switch_show_used_num_electric);
         Switch switchShowElectricUserType = view.findViewById(R.id.switch_show_elec_user_type);
         Switch switchShowPrice = view.findViewById(R.id.switch_show_price);
 
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("settings", Context.MODE_PRIVATE);
 
         // Load saved preferences
         loadSettings(sharedPreferences, switchShowAddress, switchShowUsedNumElectric, switchShowElectricUserType, switchShowPrice);
@@ -49,6 +53,7 @@ public class SettingFragment extends Fragment {
     }
 
     // Load saved settings into the switches
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
     private void loadSettings(SharedPreferences sharedPreferences, Switch switchShowAddress, Switch switchShowUsedNumElectric, Switch switchShowElectricUserType, Switch switchShowPrice) {
         switchShowAddress.setChecked(sharedPreferences.getBoolean("show_address", true));
         switchShowUsedNumElectric.setChecked(sharedPreferences.getBoolean("show_used_num_electric", true));
@@ -57,6 +62,7 @@ public class SettingFragment extends Fragment {
     }
 
     // Set listeners to save the switch state in SharedPreferences
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
     private void setSwitchListeners(SharedPreferences sharedPreferences, Switch switchShowAddress, Switch switchShowUsedNumElectric, Switch switchShowElectricUserType, Switch switchShowPrice) {
         switchShowAddress.setOnCheckedChangeListener((buttonView, isChecked) -> saveSetting(sharedPreferences, "show_address", isChecked));
         switchShowUsedNumElectric.setOnCheckedChangeListener((buttonView, isChecked) -> saveSetting(sharedPreferences, "show_used_num_electric", isChecked));

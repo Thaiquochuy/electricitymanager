@@ -8,9 +8,9 @@ public class Customer implements Serializable {
     private String name;  // Tên của khách hàng
     private String dob;  // Ngày sinh của khách hàng
     private String address;  // Địa chỉ của khách hàng
-    private int usedElectricNum;  // Số điện đã sử dụng
-    private String electricTypeName;  // Tên loại người dùng điện
-    private double unitPrice;  // Đơn giá điện
+    private final int usedElectricNum;  // Số điện đã sử dụng
+    private final String electricTypeName;  // Tên loại người dùng điện
+    private final double unitPrice;  // Đơn giá điện
 
     // Constructor
     public Customer(int id, String name, String dob, String address, int usedElectricNum, String electricTypeName, double unitPrice) {
@@ -60,23 +60,12 @@ public class Customer implements Serializable {
         return usedElectricNum;
     }
 
-    public void setUsedElectricNum(int usedElectricNum) {
-        this.usedElectricNum = usedElectricNum;
-    }
-
     public String getElectricTypeName() {
         return electricTypeName;
     }
 
-    public void setElectricTypeName(String electricTypeName) {
-        this.electricTypeName = electricTypeName;
-    }
 
     public double getUnitPrice() {
         return unitPrice;
-    }
-
-    public void setUnitPrice(double unitPrice) {
-        this.unitPrice = unitPrice;
     }
 }

@@ -113,19 +113,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Delete customer
-    public int deleteCustomer(int id) {
+    public void deleteCustomer(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         // Delete the row by ID and return the number of affected rows
-        return db.delete(TABLE_CUSTOMER, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
+        db.delete(TABLE_CUSTOMER, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
     }
 
-
-    // Fetch all customers (optional)
-    public Cursor getAllCustomers() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        String query = "SELECT * FROM " + TABLE_CUSTOMER;
-        return db.rawQuery(query, null);
-    }
 
     public ElectricUserType getElectricUserTypeById(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
