@@ -15,8 +15,6 @@ import androidx.fragment.app.Fragment;
 
 import com.example.electricitymanager.R;
 
-import java.util.Objects;
-
 public class SettingFragment extends Fragment {
 
     @Nullable

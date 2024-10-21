@@ -19,9 +19,6 @@ public class IncreasePriceFragment extends Fragment {
     private Button btnIncreasePrice, btnDecreasePrice;
     private DatabaseHelper dbHelper;
 
-    public IncreasePriceFragment() {
-        // Required empty public constructor
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

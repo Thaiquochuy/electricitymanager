@@ -122,13 +122,41 @@ public class PersonFragment extends Fragment {
     }
 
     private boolean validateInputs() {
-        if (etName.getText().toString().isEmpty() || etDob.getText().toString().isEmpty() ||
-                etAddress.getText().toString().isEmpty() || etUsedNumElectric.getText().toString().isEmpty()) {
+        String name = etName.getText().toString();
+        String dob = etDob.getText().toString();
+        String address = etAddress.getText().toString();
+        String usedNumElectricStr = etUsedNumElectric.getText().toString();
+
+        // Kiểm tra các trường không được để trống
+        if (name.isEmpty() || dob.isEmpty() || address.isEmpty() || usedNumElectricStr.isEmpty()) {
             Toast.makeText(getContext(), "All fields are required", Toast.LENGTH_SHORT).show();
             return false;
         }
+
+        // Kiểm tra không cho nhập số vào trường tên
+        if (!name.matches("[a-zA-Z\\s]+")) {
+            Toast.makeText(getContext(), "Name should not contain numbers", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        // Kiểm tra giá trị số điện đã sử dụng có phải là số hợp lệ
+        int usedNumElectric;
+        try {
+            usedNumElectric = Integer.parseInt(usedNumElectricStr);
+        } catch (NumberFormatException e) {
+            Toast.makeText(getContext(), "Invalid number for electric usage", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        // Kiểm tra không cho nhập số âm vào số điện đã sử dụng
+        if (usedNumElectric < 0) {
+            Toast.makeText(getContext(), "Electric usage cannot be negative", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
         return true;
     }
+
 
     private void addCustomerToDatabase() {
         String name = etName.getText().toString();

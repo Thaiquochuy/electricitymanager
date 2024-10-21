@@ -7,16 +7,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.electricitymanager.fragments.HomeFragment;
-
-import com.example.electricitymanager.fragments.PersonFragment;
 import com.example.electricitymanager.fragments.SearchCustomerFragment;
+import com.example.electricitymanager.fragments.SettingFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView textViewDate;
-
-//    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
                 selectedFragment = new HomeFragment();
             } else if (item.getItemId() == R.id.menu_search) {
                 selectedFragment = new SearchCustomerFragment();
-            }else if (item.getItemId() == R.id.menu_person) {
-            selectedFragment = new PersonFragment();
+            }else if (item.getItemId() == R.id.menu_setting) {
+            selectedFragment = new SettingFragment();
             }
 
             if (selectedFragment != null) {
